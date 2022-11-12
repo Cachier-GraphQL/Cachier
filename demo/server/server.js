@@ -3,6 +3,7 @@ const express = require('express');
 const expressGraphQL = require('express-graphql').graphqlHTTP;
 const schema = require('./schema.js');
 const cacheMoney = require('./cacheMoney.js');
+const cacheMoneyDemo = require('./cacheMoneyDemo.js');
 const cors = require('cors');
 const Redis = require('redis');
 const REDIS_PORT = 6379;
@@ -14,12 +15,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
+// creates a client on Redis for user to use as cache
 const client = Redis.createClient(REDIS_PORT);
 client.connect();
 
 app.use(
   '/cacheMoney',
-  cacheMoney('http://localhost:3000/graphql', client, 50, 5)
+  cacheMoneyDemo('http://localhost:3000/graphql', 50, 5) // calling demo version rn -> change to cacheMoney before deploying
 );
 
 app.use(

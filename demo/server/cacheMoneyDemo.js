@@ -1,7 +1,7 @@
 const fetch = (...args) =>
   import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
-function CacheMoney(endpoint, capacity, groupSize, redisClient = null) {
+function CacheMoneyDemo(endpoint, capacity, groupSize, redisClient = null) {
   //initalizes a new eviction queue (linked list) for the server
   const queue = new EvictionQueue();
   //keeps track of the current group size
@@ -42,7 +42,7 @@ function CacheMoney(endpoint, capacity, groupSize, redisClient = null) {
 
     if (valueFromCache) {
       // if cache contains the requested data return data from the cache.
-      res.send(valueFromCache);
+      res.json({ valueFromCache, queue }); // also returns evictionQueue linked list for EvictionVisualizer
       // update recency of the accessed cacheKey by moving it to the front of the linked list.
       queue.updateRecencyOfExistingCache(cacheKey);
     } else {
@@ -59,7 +59,7 @@ function CacheMoney(endpoint, capacity, groupSize, redisClient = null) {
         .then((data) => {
           const end = performance.now();
           const latency = end - start;
-          res.json({ data, queue });
+          res.json({ data, queue }); // also returns evictionQueue linked list for EvictionVisualizer
 
           redisClient
             ? redisClient.set(cacheKey, JSON.stringify(data))
@@ -209,4 +209,4 @@ class EvictionQueue {
   }
 }
 
-module.exports = CacheMoney;
+module.exports = CacheMoneyDemo;

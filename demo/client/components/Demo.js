@@ -66,12 +66,13 @@ const Demo = () => {
         return res.json();
       })
       .then((data) => {
+        console.log(data.queue);
         const endTime = (performance.now() - startTime).toFixed(2);
         setQueryTime(endTime);
         setQueryTimeArray([...queryTimeArray, endTime]);
-        setQueryData(data.data.cities);
+        setQueryData(data.data.data.cities);
         //console.log(JSON.stringify(data, null, 2));
-        setQueryResult(JSON.stringify(data, null, 2));
+        setQueryResult(JSON.stringify(data.data, null, 2));
       });
   };
 
