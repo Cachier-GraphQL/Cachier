@@ -146,7 +146,6 @@ const Demo = () => {
 
 
   return (
-
     <div className="demoDiv">
       <h2>{queryGraphQLString}</h2>
       {
@@ -160,25 +159,77 @@ const Demo = () => {
         <Grid item>
           <Box display="flex" flexDirection="column" sx={{ gap: 3 }}>
             <Container id="queryString">
-              <h2>Query String</h2>
-              <input type="checkbox" onChange={()=> clientChecked ? setClientChecked(false) : setClientChecked(true)} id="clients" name="clients" value="clients"/>
+              <h2 className="submitQuery">Query String</h2>
+              <input
+                type="checkbox"
+                onChange={() =>
+                  clientChecked
+                    ? setClientChecked(false)
+                    : setClientChecked(true)
+                }
+                id="clients"
+                name="clients"
+                value="clients"
+              />
               <label for="clients"> Clients</label>
               <Container>
-                {clientChecked === true && 
-                <div>
-                  <input type="checkbox" onChange={()=> clientIdChecked ? setClientIdChecked(false) : setClientIdChecked(true)} checked={clientIdChecked} id="clients" name="clientId" value="clientId"/>
-                  <label for="clientId"> ID</label>
-                  <input type="checkbox" onChange={()=> clientNameChecked ? setClientNameChecked(false) : setClientNameChecked(true)} checked={clientNameChecked} id="clientName" name="clientName" value="clientName"/>
-                  <label for="clientName"> Name</label>
-                  <input type="checkbox" onChange={()=> clientEmailChecked ? setClientEmailChecked(false) : setClientEmailChecked(true)} checked={clientEmailChecked} id="clientEmail" name="clientEmail" value="clientEmail"/>
-                  <label for="clientEmail"> Email</label>
-                  <input type="checkbox" onChange={()=> clientPhoneChecked ? setClientPhoneChecked(false) : setClientPhoneChecked(true)} checked={clientPhoneChecked} id="clientPhone" name="clientPhone" value="clientPhone"/>
-                  <label for="clientPhone"> Phone</label>
-                </div>
-                }
+                {clientChecked === true && (
+                  <div>
+                    <input
+                      type="checkbox"
+                      onChange={() =>
+                        clientIdChecked
+                          ? setClientIdChecked(false)
+                          : setClientIdChecked(true)
+                      }
+                      checked={clientIdChecked}
+                      id="clients"
+                      name="clientId"
+                      value="clientId"
+                    />
+                    <label for="clientId"> ID</label>
+                    <input
+                      type="checkbox"
+                      onChange={() =>
+                        clientNameChecked
+                          ? setClientNameChecked(false)
+                          : setClientNameChecked(true)
+                      }
+                      checked={clientNameChecked}
+                      id="clientName"
+                      name="clientName"
+                      value="clientName"
+                    />
+                    <label for="clientName"> Name</label>
+                    <input
+                      type="checkbox"
+                      onChange={() =>
+                        clientEmailChecked
+                          ? setClientEmailChecked(false)
+                          : setClientEmailChecked(true)
+                      }
+                      checked={clientEmailChecked}
+                      id="clientEmail"
+                      name="clientEmail"
+                      value="clientEmail"
+                    />
+                    <label for="clientEmail"> Email</label>
+                    <input
+                      type="checkbox"
+                      onChange={() =>
+                        clientPhoneChecked
+                          ? setClientPhoneChecked(false)
+                          : setClientPhoneChecked(true)
+                      }
+                      checked={clientPhoneChecked}
+                      id="clientPhone"
+                      name="clientPhone"
+                      value="clientPhone"
+                    />
+                    <label for="clientPhone"> Phone</label>
+                  </div>
+                )}
               </Container>
-              
-              
             </Container>
             <Container
               sx={{
@@ -192,7 +243,7 @@ const Demo = () => {
                 border: '2px solid black',
                 color: '#9C528B'
               }}
-              className='queryStringContainer'
+              className="queryStringContainer"
             >
               {testQuery()}
               <p> {queryString} </p>
@@ -207,10 +258,10 @@ const Demo = () => {
               Upload Query
             </Button> */}
             <Button
-              variant='contained'
-              color='success'
-              size='medium'
-              id='queryButton'
+              variant="contained"
+              color="success"
+              size="medium"
+              id="queryButton"
               onClick={handleQuery}
             >
               Run Query
@@ -219,7 +270,14 @@ const Demo = () => {
         </Grid>
 
         <Grid item>
-          <Typography variant="h2">Query Result</Typography>
+          <Typography
+            variant="h2"
+            sx={{
+              textAlign: 'center'
+            }}
+          >
+            Query Result
+          </Typography>
           <Container
             sx={{
               overflow: 'auto',

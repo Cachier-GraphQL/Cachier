@@ -23,8 +23,8 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const client = Redis.createClient(REDIS_PORT);
-client.connect();
+// const client = Redis.createClient(REDIS_PORT);
+// client.connect();
 
 app.use(express.static(path.resolve(__dirname, '../client')));
 
