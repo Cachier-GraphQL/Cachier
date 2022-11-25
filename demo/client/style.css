@@ -1,57 +1,25 @@
-.NavBar {
-  background-color: #245594;
-  font-family: Georgia, serif;
-  font-size: 1.1vw;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.welcomeBox {
   display: flex;
-  justify-content: space-between;
-  position: fixed;
-  overflow: hidden;
-  width: 100%;
-  height: 10%;
-}
-
-.BodyDiv {
-  background-color: #d4ecf0;
-}
-
-.logo {
-  width: 6vw;
-  height: 4vw;
-  margin-left: 2vw;
-}
-
-.listDiv {
-  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  background-color: rgb(210, 240, 251);
+  padding: 200px;
+  color: #0a405f;
 }
 
-.list {
-  list-style-type: none;
-  overflow: hidden;
-  position: sticky;
-  top: 0;
-  width: 100%;
-  background-color: #245594;
-  border-style: none;
+.welcome {
+  font-size: 4vw;
+  font-weight: bold;
   display: flex;
-  align-items: center;
-  gap: 1.5vw;
-  margin-right: 1.5vw;
+  justify-content: center;
 }
 
-li {
-  float: left;
-}
-
-li a {
-  display: block;
-  color: #ffd240;
+.productDescription {
   text-align: center;
-  text-decoration: none;
-}
-
-li a:hover {
-  border-radius: 10%;
-  font-size: 1.3vw;
-  color: #fab120;
+  font-size: 1.1vw;
 }

@@ -10,35 +10,46 @@ root.render(
   <div className='BodyDiv'>
     <React.StrictMode>
       <BrowserRouter>
-        <nav className='NavBar'>
-          <div>
-            <img className='logo' src={logo}></img>
+        <div className='navbar bg-neutral text-neutral-content sticky top-0 '>
+          <div className='flex-1'>
+            <img className='h-16 w-18' src={logo}></img>
+            <a className='btn btn-ghost normal-case text-xl'>Cachier</a>
           </div>
-          <div className='listDiv'>
-            <ul className='list'>
+          <div className='flex-none'>
+            <ul className='menu menu-horizontal p-0'>
               <li>
                 <a>
                   <NavLink to={'/'}>Home</NavLink>
                 </a>
               </li>
-              <li>
+              <li tabIndex={0}>
                 <a>
-                  <NavLink to={'/demo'}>Demo</NavLink>
+                  Product
+                  <svg
+                    className='fill-current'
+                    xmlns='http://www.w3.org/2000/svg'
+                    width='20'
+                    height='20'
+                    viewBox='0 0 24 24'
+                  >
+                    <path d='M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z' />
+                  </svg>
                 </a>
+                <ul className='p-2 bg-base-100'>
+                  <li>
+                    <NavLink to={'/demo'}>Demo</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to={'/documentation'}>Docs</NavLink>
+                  </li>
+                </ul>
               </li>
               <li>
-                <a>
-                  <NavLink to={'/documentation'}>Docs</NavLink>
-                </a>
-              </li>
-              <li>
-                <a>
-                  <NavLink to={'/about'}>About</NavLink>
-                </a>
+                <NavLink to={'/about'}>Developers</NavLink>
               </li>
             </ul>
           </div>
-        </nav>
+        </div>
 
         <App />
       </BrowserRouter>
