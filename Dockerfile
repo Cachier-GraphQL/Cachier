@@ -1,9 +1,9 @@
 # syntax=docker/dockerfile:1
-FROM node:12
+FROM node:16
 # RUN apk add --no-cache python2 g++ make
 WORKDIR /app
-COPY package*.json .
+COPY . /app/
 RUN npm install
-ENV PORT=8080
-EXPOSE 8080
-CMD [ "npm", "run", "dev" ]
+EXPOSE 3000
+# CMD [ "npm", "run", "dev" ]
+ENTRYPOINT [ "node" , "/app/demo/server/server.js"]
