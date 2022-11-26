@@ -5,5 +5,4 @@ WORKDIR /app
 COPY . /app/
 RUN npm install
 EXPOSE 3000
-# CMD [ "npm", "run", "dev" ]
 ENTRYPOINT [ "node" , "/app/demo/server/server.js"]
